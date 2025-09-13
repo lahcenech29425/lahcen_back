@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_blocks_explore_sections",
+  "info": {
+    "displayName": "ExploreSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "button": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
+    },
+    "fetchCount": {
+      "type": "integer"
+    },
+    "itemType": {
+      "type": "enumeration",
+      "enum": [
+        "products",
+        "categories",
+        "blogs",
+        "quran-images",
+        "hadith-images"
+      ]
+    },
+    "fetchCondition": {
+      "type": "enumeration",
+      "enum": [
+        "isFeatured",
+        "popular",
+        "new-arrivals"
+      ]
+    }
+  },
+  "config": {}
+}

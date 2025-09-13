@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_blocks_sliders",
+  "info": {
+    "displayName": "slider"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "allow_thumbnail": {
+      "type": "boolean",
+      "default": false
+    },
+    "slider": {
+      "type": "component",
+      "component": "elements.slide",
+      "repeatable": true
+    },
+    "timer": {
+      "type": "integer",
+      "default": 2
+    }
+  },
+  "config": {}
+}

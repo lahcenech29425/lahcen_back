@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_blocks_stats_sections",
+  "info": {
+    "displayName": "statsSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "stats": {
+      "type": "component",
+      "component": "elements.stat",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
