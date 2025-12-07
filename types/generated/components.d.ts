@@ -177,7 +177,7 @@ export interface GlobalSocialLink extends Struct.ComponentSchema {
     icon: Schema.Attribute.Media<'images'>;
     is_active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     platform: Schema.Attribute.Enumeration<
-      ['facebook', 'instagram', 'x', 'tiktok', 'youtube']
+      ['facebook', 'instagram', 'x', 'tiktok', 'youtube', 'whatsapp']
     >;
     url: Schema.Attribute.String;
   };
