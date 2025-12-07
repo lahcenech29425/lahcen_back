@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "books",
+  "info": {
+    "singularName": "book",
+    "pluralName": "books",
+    "displayName": "book"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "author": {
+      "type": "string",
+      "required": false
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "القرآن الكريم",
+        "الحديث الشريف",
+        "العقيدة",
+        "الفقه",
+        "السيرة",
+        "التزكية",
+        "الدعوة",
+        "اللغة",
+        "الروحانيات"
+      ]
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "pdfFile": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "pageCount": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "publishedYear": {
+      "type": "integer",
+      "required": true
+    },
+    "downloadCount": {
+      "type": "biginteger"
+    }
+  }
+}

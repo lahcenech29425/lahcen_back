@@ -183,19 +183,6 @@ export interface GlobalSocialLink extends Struct.ComponentSchema {
   };
 }
 
-export interface OrdersOrderItem extends Struct.ComponentSchema {
-  collectionName: 'components_orders_order_items';
-  info: {
-    displayName: 'OrderItem';
-  };
-  attributes: {
-    product: Schema.Attribute.Relation<'oneToOne', 'api::product.product'>;
-    quantity: Schema.Attribute.Integer;
-    subtotal: Schema.Attribute.Decimal;
-    unitPrice: Schema.Attribute.Decimal;
-  };
-}
-
 export interface SharedOpenGraph extends Struct.ComponentSchema {
   collectionName: 'components_shared_open_graphs';
   info: {
@@ -264,7 +251,6 @@ declare module '@strapi/strapi' {
       'elements.stat': ElementsStat;
       'global.contact-info': GlobalContactInfo;
       'global.social-link': GlobalSocialLink;
-      'orders.order-item': OrdersOrderItem;
       'shared.open-graph': SharedOpenGraph;
       'shared.seo': SharedSeo;
     }
