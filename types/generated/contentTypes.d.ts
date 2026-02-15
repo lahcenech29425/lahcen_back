@@ -524,37 +524,6 @@ export interface ApiBookBook extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
-  collectionName: 'categories';
-  info: {
-    displayName: 'category';
-    pluralName: 'categories';
-    singularName: 'category';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::category.category'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'name'>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: 'footers';
   info: {
@@ -678,10 +647,47 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
         'blocks.slider',
         'blocks.explore-section',
         'blocks.services-section',
+        'blocks.feature-section',
       ]
     >;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMushafPdfMushafPdf extends Struct.CollectionTypeSchema {
+  collectionName: 'mushaf_pdfs';
+  info: {
+    description: 'PDF files for different Quran recitations (Hafs, Warsh)';
+    displayName: 'Mushaf PDF';
+    pluralName: 'mushaf-pdfs';
+    singularName: 'mushaf-pdf';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mushaf-pdf.mushaf-pdf'
+    > &
+      Schema.Attribute.Private;
+    pageCount: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<604>;
+    pdf: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['hafs', 'warsh']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -744,6 +750,12 @@ export interface ApiSiteConfigSiteConfig extends Struct.SingleTypeSchema {
       'api::site-config.site-config'
     > &
       Schema.Attribute.Private;
+    maintenanceMessage: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'\u0646\u062D\u0646 \u0646\u0639\u0645\u0644 \u0639\u0644\u0649 \u062A\u062D\u0633\u064A\u0646 \u0627\u0644\u0645\u0648\u0642\u0639. \u064A\u0631\u062C\u0649 \u0627\u0644\u0639\u0648\u062F\u0629 \u0644\u0627\u062D\u0642\u0627\u064B.'>;
+    maintenanceMode: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    maintenanceTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'\u0627\u0644\u0645\u0648\u0642\u0639 \u062A\u062D\u062A \u0627\u0644\u0635\u064A\u0627\u0646\u0629'>;
     publishedAt: Schema.Attribute.DateTime;
     siteName: Schema.Attribute.String;
     socialLinks: Schema.Attribute.Component<'global.social-link', true>;
@@ -1265,11 +1277,11 @@ declare module '@strapi/strapi' {
       'api::announcement-bar.announcement-bar': ApiAnnouncementBarAnnouncementBar;
       'api::blog.blog': ApiBlogBlog;
       'api::book.book': ApiBookBook;
-      'api::category.category': ApiCategoryCategory;
       'api::footer.footer': ApiFooterFooter;
       'api::hadith-image.hadith-image': ApiHadithImageHadithImage;
       'api::header.header': ApiHeaderHeader;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::mushaf-pdf.mushaf-pdf': ApiMushafPdfMushafPdf;
       'api::quran-image.quran-image': ApiQuranImageQuranImage;
       'api::site-config.site-config': ApiSiteConfigSiteConfig;
       'plugin::content-releases.release': PluginContentReleasesRelease;

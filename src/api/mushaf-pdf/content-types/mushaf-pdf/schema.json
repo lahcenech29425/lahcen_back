@@ -1,0 +1,48 @@
+{
+    "kind": "collectionType",
+    "collectionName": "mushaf_pdfs",
+    "info": {
+        "singularName": "mushaf-pdf",
+        "pluralName": "mushaf-pdfs",
+        "displayName": "Mushaf PDF",
+        "description": "PDF files for different Quran recitations (Hafs, Warsh)"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "type": {
+            "type": "enumeration",
+            "enum": [
+                "hafs",
+                "warsh"
+            ],
+            "required": true,
+            "unique": true
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        },
+        "pdf": {
+            "type": "media",
+            "multiple": false,
+            "required": true,
+            "allowedTypes": [
+                "files"
+            ]
+        },
+        "pageCount": {
+            "type": "integer",
+            "default": 604
+        },
+        "isActive": {
+            "type": "boolean",
+            "default": true
+        }
+    }
+}

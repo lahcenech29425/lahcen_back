@@ -42,6 +42,18 @@
     },
     "footerText": {
       "type": "string"
+    },
+    "maintenanceMode": {
+      "type": "boolean",
+      "default": false
+    },
+    "maintenanceTitle": {
+      "type": "string",
+      "default": "الموقع تحت الصيانة"
+    },
+    "maintenanceMessage": {
+      "type": "text",
+      "default": "نحن نعمل على تحسين الموقع. يرجى العودة لاحقاً."
     }
   }
 }

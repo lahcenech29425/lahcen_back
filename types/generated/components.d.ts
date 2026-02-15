@@ -19,6 +19,23 @@ export interface BlocksExploreSection extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksFeatureSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_feature_sections';
+  info: {
+    description: 'Simple section with badge, title, description, button and image';
+    displayName: 'FeatureSection';
+  };
+  attributes: {
+    badge: Schema.Attribute.String;
+    button: Schema.Attribute.Component<'elements.link', false>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    imagePosition: Schema.Attribute.Enumeration<['left', 'right']> &
+      Schema.Attribute.DefaultTo<'right'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksHeroSection extends Struct.ComponentSchema {
   collectionName: 'components_blocks_hero_sections';
   info: {
@@ -183,6 +200,18 @@ export interface GlobalSocialLink extends Struct.ComponentSchema {
   };
 }
 
+export interface OrdersOrderItem extends Struct.ComponentSchema {
+  collectionName: 'components_orders_order_items';
+  info: {
+    displayName: 'OrderItem';
+  };
+  attributes: {
+    quantity: Schema.Attribute.Integer;
+    subtotal: Schema.Attribute.Decimal;
+    unitPrice: Schema.Attribute.Decimal;
+  };
+}
+
 export interface SharedOpenGraph extends Struct.ComponentSchema {
   collectionName: 'components_shared_open_graphs';
   info: {
@@ -238,6 +267,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'blocks.explore-section': BlocksExploreSection;
+      'blocks.feature-section': BlocksFeatureSection;
       'blocks.hero-section': BlocksHeroSection;
       'blocks.services-section': BlocksServicesSection;
       'blocks.slider': BlocksSlider;
@@ -251,6 +281,7 @@ declare module '@strapi/strapi' {
       'elements.stat': ElementsStat;
       'global.contact-info': GlobalContactInfo;
       'global.social-link': GlobalSocialLink;
+      'orders.order-item': OrdersOrderItem;
       'shared.open-graph': SharedOpenGraph;
       'shared.seo': SharedSeo;
     }
