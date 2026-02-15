@@ -24,7 +24,8 @@
         "blocks.stats-section",
         "blocks.slider",
         "blocks.explore-section",
-        "blocks.services-section"
+        "blocks.services-section",
+        "blocks.feature-section"
       ]
     }
   }
