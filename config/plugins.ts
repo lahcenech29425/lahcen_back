@@ -4,7 +4,7 @@ export default ({ env }) => ({
   },
   upload: {
     config: {
-      provider: 'cloudinary',
+      provider: "cloudinary",
       providerOptions: {
         cloud_name: process.env.CLOUDINARY_NAME,
         api_key: process.env.CLOUDINARY_KEY,
@@ -18,17 +18,17 @@ export default ({ env }) => ({
     },
   },
   // Cache Configuration
-  'rest-cache': {
+  "rest-cache": {
     config: {
       provider: {
-        name: 'memory',
+        name: "memory",
         options: {
           maxSize: 32767,
           ttl: 3600000, // 1 hour in milliseconds
         },
       },
       strategy: {
-        keysPrefix: 'idech',
+        keysPrefix: "idech",
         enableEtag: true,
         enableXCacheHeaders: true,
         debug: true,
@@ -36,16 +36,16 @@ export default ({ env }) => ({
         updateAgeOnGet: false,
         contentTypes: [
           // Content Types
-          'api::about-page.about-page',
-          'api::announcement-bar.announcement-bar',
-          'api::blog.blog',
-          'api::book.book',
-          'api::footer.footer',
-          'api::hadith-image.hadith-image',
-          'api::header.header',
-          'api::homepage.homepage',
-          'api::quran-image.quran-image',
-          'api::site-config.site-config',
+          "api::about-page.about-page",
+          "api::announcement-bar.announcement-bar",
+          "api::blog.blog",
+          "api::book.book",
+          "api::footer.footer",
+          "api::hadith-image.hadith-image",
+          "api::header.header",
+          "api::homepage.homepage",
+          "api::quran-image.quran-image",
+          "api::site-config.site-config",
         ],
       },
     },
